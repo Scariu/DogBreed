@@ -1,4 +1,6 @@
 package com.example.dogbreed.data.remote
 
-class DogBreed {
-}
+data class DogBreed(
+    val message: Map<String, List<String>>,
+    val status: String
+)
