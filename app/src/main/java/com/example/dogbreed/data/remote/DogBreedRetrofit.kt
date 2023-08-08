@@ -7,7 +7,7 @@ class DogBreedRetrofit {
     companion object {
         private const val URL_BASE = "https://dog.ceo/api/"
 
-        fun getDogRaceRetrofit(): DogBreedAPI {
+        fun getDogBreedRetrofit(): DogBreedAPI {
             val mRetrofit = Retrofit.Builder().baseUrl(URL_BASE).addConverterFactory(
                 GsonConverterFactory.create()
             ).build()
