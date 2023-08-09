@@ -1,4 +1,3 @@
 package com.example.dogbreed.data.remote
-
-class DogDetail {
-}
+//Para Secondfragment detalle
+data class DogDetail(val status: String, val message: List<String>)
