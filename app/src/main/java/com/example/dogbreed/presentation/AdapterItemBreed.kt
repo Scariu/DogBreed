@@ -2,7 +2,9 @@ package com.example.dogbreed.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dogbreed.R
 import com.example.dogbreed.data.local.DogBreedEntity
 import com.example.dogbreed.databinding.ItemBreedBinding
 
@@ -29,10 +31,15 @@ class AdapterItemBreed: RecyclerView.Adapter<AdapterItemBreed.ViewHolder>() {
         this.lisItemBreed.addAll(breeds)
         notifyDataSetChanged()
     }
-    class ViewHolder(private val binding: ItemBreedBinding): RecyclerView.ViewHolder(binding.root) {
+
+    class ViewHolder(private val binding: ItemBreedBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(breedView: DogBreedEntity) {
             binding.tvBreed.text = breedView.breed
-           // binding.cvItemBreed.setOnClickListener{ }
+            binding.cvItemBreed.setOnClickListener {
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_firstFragmentBreedList_to_secondFragmentDetalle)
+            }
         }
     }
 }

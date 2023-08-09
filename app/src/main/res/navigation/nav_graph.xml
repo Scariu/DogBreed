@@ -9,5 +9,14 @@
         android:id="@+id/firstFragmentBreedList"
         android:name="com.example.dogbreed.presentation.FirstFragmentBreedList"
         android:label="fragment_first_breed_list"
-        tools:layout="@layout/fragment_first_breed_list" />
+        tools:layout="@layout/fragment_first_breed_list" >
+        <action
+            android:id="@+id/action_firstFragmentBreedList_to_secondFragmentDetalle"
+            app:destination="@id/secondFragmentDetalle" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragmentDetalle"
+        android:name="com.example.dogbreed.presentation.SecondFragmentDetalle"
+        android:label="fragment_second_detalle"
+        tools:layout="@layout/fragment_second_detalle" />
 </navigation>
