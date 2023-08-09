@@ -1,10 +1,12 @@
 package com.example.dogbreed.data
 
+import androidx.lifecycle.LiveData
 import com.example.dogbreed.data.local.DogBreedDAO
 import com.example.dogbreed.data.local.DogBreedEntity
 import com.example.dogbreed.data.remote.DogBreedAPI
 
 class Repository(private val dogBreedAPI: DogBreedAPI, private val dogBreedDAO: DogBreedDAO) {
+    fun getBreedsEntity(): LiveData<List<DogBreedEntity>> = dogBreedDAO.getDogBreeds()
     suspend fun getBreeds() {
         val response = dogBreedAPI.getData() // Aqui llegan los datos
         if (response.isSuccessful) { //Evalua si llegaron los datos

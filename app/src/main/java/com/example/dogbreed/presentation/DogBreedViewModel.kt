@@ -12,11 +12,12 @@ import kotlinx.coroutines.launch
 class DogBreedViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: Repository
 
+    fun breedsLiveData() = repository.getBreedsEntity()
     init {
         val api = DogBreedRetrofit.getDogBreedRetrofit()
         val dogBreedDataBase: DogBreedDAO = DogBreedDataBase.getDatabase(application).getBreedDAO()
         repository = Repository(api, dogBreedDataBase)
     }
 
-    fun getData() = viewModelScope.launch { repository.getBreeds() }
+    fun getDataAllDogBreeds() = viewModelScope.launch { repository.getBreeds() }
 }
