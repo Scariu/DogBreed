@@ -17,14 +17,14 @@ class FirstFragmentBreedList : Fragment() {
     ): View? {
         binding = FragmentFirstBreedListBinding.inflate(layoutInflater)
         initAdapter()
-        viewModel.getDataAllDogBreeds()
         return binding.root
     }
 
     private fun initAdapter() {
+        viewModel.getDataAllDogBreeds()
         val adapter = AdapterItemBreed()
         binding.recyclerViewBreed.adapter = adapter
-        viewModel.breedsLiveData().observe(viewLifecycleOwner){
+        viewModel.breedsLiveData().observe(viewLifecycleOwner) {
             adapter.setData(it)
         }
     }
