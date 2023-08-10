@@ -35,7 +35,7 @@ class SecondFragmentDetalle : Fragment() {
     }
 
     private fun setSubTitle() {
-        binding.tvCardTitleDog.text = param1.toString()
+Se        binding.tvCardTitleDog.text = param1.toString().uppercase()
     }
 
     private fun initAdapter() {

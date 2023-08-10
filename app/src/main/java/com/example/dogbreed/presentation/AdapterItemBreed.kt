@@ -36,7 +36,7 @@ class AdapterItemBreed: RecyclerView.Adapter<AdapterItemBreed.ViewHolder>() {
     class ViewHolder(private val binding: ItemBreedBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(breedView: DogBreedEntity) {
-            binding.tvBreed.text = breedView.breed
+            binding.tvBreed.text = breedView.breed.uppercase()
             binding.cvItemBreed.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("id", breedView.breed)

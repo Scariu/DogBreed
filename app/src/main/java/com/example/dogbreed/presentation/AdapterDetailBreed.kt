@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.dogbreed.R
 import com.example.dogbreed.data.local.detail.DogBreedDetailEntity
 import com.example.dogbreed.databinding.ItemDetailBinding
 
@@ -37,7 +38,9 @@ class AdapterDetailBreed : RecyclerView.Adapter<AdapterDetailBreed.ViewHolder>()
     class ViewHolder(private val binding: ItemDetailBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(dogDetail: DogBreedDetailEntity) {
-            binding.imageDogsDetail.load(dogDetail.url)
+            binding.imageDogsDetail.load(dogDetail.url){
+                placeholder(R.drawable.dog_loading)
+            }
         }
     }
 }
