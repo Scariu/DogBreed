@@ -7,8 +7,12 @@ import com.example.dogbreed.data.local.detail.DogBreedDetailEntity
 import com.example.dogbreed.data.local.list.DogBreedEntity
 import com.example.dogbreed.data.remote.DogBreedAPI
 
+//El repositorio es el administrador de los datos
 class Repository(private val dogBreedAPI: DogBreedAPI, private val dogBreedDAO: DogBreedDAO) {
     fun getBreedsEntity(): LiveData<List<DogBreedEntity>> = dogBreedDAO.getDogBreeds()
+    fun getDogDetailsEntity(id: String): LiveData<List<DogBreedDetailEntity>> =
+        dogBreedDAO.getDogBreedsDetails(id)
+
     suspend fun getBreeds() {
         val response = dogBreedAPI.getData() // Aqui llegan los datos
         if (response.isSuccessful) { //Evalua si llegaron los datos

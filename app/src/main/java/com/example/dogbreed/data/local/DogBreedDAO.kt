@@ -19,6 +19,7 @@ interface DogBreedDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDogBreedDetail(dogBreedDetailEntity: DogBreedDetailEntity)
 
-    /*@Query("SELECT * FROM tabla_dogbreed order by breed ASC")
-    fun getDogBreedsDetails(): LiveData<List<DogBreedEntity>>*/
+    //Muestra todas las imagenes de 1 raza con el id
+    @Query("SELECT * FROM table_detailbreed WHERE dogBreedDetail LIKE :id")
+    fun getDogBreedsDetails(id: String): LiveData<List<DogBreedDetailEntity>>
 }

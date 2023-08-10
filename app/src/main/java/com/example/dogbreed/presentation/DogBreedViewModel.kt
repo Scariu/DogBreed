@@ -13,6 +13,7 @@ class DogBreedViewModel(application: Application) : AndroidViewModel(application
     private val repository: Repository
 
     fun breedsLiveData() = repository.getBreedsEntity()
+    fun detailsLiveData(id: String) = repository.getDogDetailsEntity(id)
     init {
         val api = DogBreedRetrofit.getDogBreedRetrofit()
         val dogBreedDataBase: DogBreedDAO = DogBreedDataBase.getDatabase(application).getBreedDAO()
