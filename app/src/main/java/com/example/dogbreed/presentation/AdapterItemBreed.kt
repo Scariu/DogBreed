@@ -1,5 +1,6 @@
 package com.example.dogbreed.presentation
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
@@ -37,8 +38,10 @@ class AdapterItemBreed: RecyclerView.Adapter<AdapterItemBreed.ViewHolder>() {
         fun bind(breedView: DogBreedEntity) {
             binding.tvBreed.text = breedView.breed
             binding.cvItemBreed.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("id", breedView.breed)
                 Navigation.findNavController(binding.root)
-                    .navigate(R.id.action_firstFragmentBreedList_to_secondFragmentDetalle)
+                    .navigate(R.id.action_firstFragmentBreedList_to_secondFragmentDetalle, bundle)
             }
         }
     }
