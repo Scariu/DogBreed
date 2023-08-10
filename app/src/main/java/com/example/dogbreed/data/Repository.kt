@@ -14,26 +14,35 @@ class Repository(private val dogBreedAPI: DogBreedAPI, private val dogBreedDAO: 
         dogBreedDAO.getDogBreedsDetails(id)
 
     suspend fun getBreeds() {
-        val response = dogBreedAPI.getData() // Aqui llegan los datos
-        if (response.isSuccessful) { //Evalua si llegaron los datos
-            val message = response.body()!!.message // Solo obtiene el mensaje, no tiene status
-            val keys = message.keys
-            keys.forEach {
-                val dogBreedEntity = DogBreedEntity(it)
-                dogBreedDAO.insertDogBreed(dogBreedEntity)
+        try {
+            val response = dogBreedAPI.getData() // Aqui llegan los datos
+            if (response.isSuccessful) { //Evalua si llegaron los datos
+                val message = response.body()!!.message // Solo obtiene el mensaje, no tiene status
+                val keys = message.keys
+                keys.forEach {
+                    val dogBreedEntity = DogBreedEntity(it)
+                    dogBreedDAO.insertDogBreed(dogBreedEntity)
+                }
             }
+        } catch (exception: Exception) {
+            Log.e("catch", "")
         }
     }
 
     suspend fun getDogDetail(id: String) {
-        val response = dogBreedAPI.getDetailDogData(id)
-        if (response.isSuccessful) {
-            response.body()!!.message.forEach {
-                val dogDetailEntity = DogBreedDetailEntity(id, it)
-                dogBreedDAO.insertDogBreedDetail(dogDetailEntity)
+        try {
+            val response = dogBreedAPI.getDetailDogData(id)
+            if (response.isSuccessful) {
+                response.body()!!.message.forEach {
+                    val dogDetailEntity = DogBreedDetailEntity(id, it)
+                    dogBreedDAO.insertDogBreedDetail(dogDetailEntity)
+                }
+            } else {
+                Log.e("repositorio", response.errorBody().toString())
             }
-        } else {
-            Log.e("repositorio", response.errorBody().toString())
+
+        } catch (exception: Exception) {
+            Log.e("catch", "")
         }
     }
 }
