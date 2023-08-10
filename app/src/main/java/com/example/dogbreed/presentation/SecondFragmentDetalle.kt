@@ -12,8 +12,6 @@ import com.example.dogbreed.databinding.FragmentSecondDetalleBinding
 
 private const val ARG_PARAM1 = "id"
 
-
-
 class SecondFragmentDetalle : Fragment() {
     lateinit var binding: FragmentSecondDetalleBinding
     private val viewModel: DogBreedViewModel by activityViewModels()
