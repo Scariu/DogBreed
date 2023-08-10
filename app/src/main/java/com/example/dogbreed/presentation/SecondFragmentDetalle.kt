@@ -30,7 +30,12 @@ class SecondFragmentDetalle : Fragment() {
     ): View? {
         binding = FragmentSecondDetalleBinding.inflate(layoutInflater)
         initAdapter()
+        setSubTitle()
         return binding.root
+    }
+
+    private fun setSubTitle() {
+        binding.tvCardTitleDog.text = param1.toString()
     }
 
     private fun initAdapter() {

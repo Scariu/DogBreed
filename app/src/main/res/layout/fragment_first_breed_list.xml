@@ -5,10 +5,11 @@
     android:id="@+id/clActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#26170A"
     tools:context=".presentation.FirstFragmentBreedList">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvTitle"
+        android:id="@+id/cvTitleDog"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:backgroundTint="#F2C641"
@@ -22,7 +23,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvCardTitle"
+                android:id="@+id/tvCardTitleDog"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Razas de Perros"
@@ -51,10 +52,11 @@
         android:id="@+id/recyclerViewBreed"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:background="#26170A"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/cvTitleDog" />
 </androidx.constraintlayout.widget.ConstraintLayout>
