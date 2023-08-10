@@ -20,4 +20,7 @@ class DogBreedViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun getDataAllDogBreeds() = viewModelScope.launch { repository.getBreeds() }
+
+    fun getDataAllDogBreedDetails(id: String) =
+        viewModelScope.launch { repository.getDogDetail(id) }
 }

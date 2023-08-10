@@ -1,8 +1,10 @@
 package com.example.dogbreed.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.dogbreed.data.local.DogBreedDAO
-import com.example.dogbreed.data.local.DogBreedEntity
+import com.example.dogbreed.data.local.detail.DogBreedDetailEntity
+import com.example.dogbreed.data.local.list.DogBreedEntity
 import com.example.dogbreed.data.remote.DogBreedAPI
 
 class Repository(private val dogBreedAPI: DogBreedAPI, private val dogBreedDAO: DogBreedDAO) {
@@ -16,6 +18,18 @@ class Repository(private val dogBreedAPI: DogBreedAPI, private val dogBreedDAO: 
                 val dogBreedEntity = DogBreedEntity(it)
                 dogBreedDAO.insertDogBreed(dogBreedEntity)
             }
+        }
+    }
+
+    suspend fun getDogDetail(id: String) {
+        val response = dogBreedAPI.getDetailDogData(id)
+        if (response.isSuccessful) {
+            response.body()!!.message.forEach {
+                val dogDetailEntity = DogBreedDetailEntity(id, it)
+                dogBreedDAO.insertDogBreedDetail(dogDetailEntity)
+            }
+        } else {
+            Log.e("repositorio", response.errorBody().toString())
         }
     }
 }

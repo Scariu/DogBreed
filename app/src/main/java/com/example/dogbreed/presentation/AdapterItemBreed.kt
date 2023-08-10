@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dogbreed.R
-import com.example.dogbreed.data.local.DogBreedEntity
+import com.example.dogbreed.data.local.list.DogBreedEntity
 import com.example.dogbreed.databinding.ItemBreedBinding
 
 class AdapterItemBreed: RecyclerView.Adapter<AdapterItemBreed.ViewHolder>() {
