@@ -29,7 +29,16 @@ class SecondFragmentDetalle : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSecondDetalleBinding.inflate(layoutInflater)
-        viewModel.getDataAllDogBreedDetails(param1.toString())
+        initAdapter()
         return binding.root
+    }
+
+    private fun initAdapter() {
+        viewModel.getDataAllDogBreedDetails(param1.toString())
+        val adapter = AdapterDetailBreed()
+        binding.recyclerViewDetailImage.adapter = adapter
+        viewModel.detailsLiveData(param1.toString()).observe(viewLifecycleOwner) {
+            adapter.setDataDetail(it)
+        }
     }
 }
