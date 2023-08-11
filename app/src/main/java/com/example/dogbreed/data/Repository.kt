@@ -20,7 +20,7 @@ class Repository(private val dogBreedAPI: DogBreedAPI, private val dogBreedDAO: 
                 val message = response.body()!!.message // Solo obtiene el mensaje, no tiene status
                 val keys = message.keys
                 keys.forEach {
-                    val dogBreedEntity = DogBreedEntity(it)
+                    val dogBreedEntity = it.transformToBreedEntity()// Transforma de String DogBreedEntity(breed) por medio de la función de extención
                     dogBreedDAO.insertDogBreed(dogBreedEntity)
                 }
             }
@@ -34,7 +34,7 @@ class Repository(private val dogBreedAPI: DogBreedAPI, private val dogBreedDAO: 
             val response = dogBreedAPI.getDetailDogData(id)
             if (response.isSuccessful) {
                 response.body()!!.message.forEach {
-                    val dogDetailEntity = it.transformToEntity(id)// Transforma de String a DetailEntity por medio de la función de extención
+                    val dogDetailEntity = it.transformToEntity(id)// Transforma de String a DetailEntity(url) por medio de la función de extención
                     dogBreedDAO.insertDogBreedDetail(dogDetailEntity)
                 }
             } else {
