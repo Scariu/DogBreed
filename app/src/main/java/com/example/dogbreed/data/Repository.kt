@@ -34,7 +34,7 @@ class Repository(private val dogBreedAPI: DogBreedAPI, private val dogBreedDAO: 
             val response = dogBreedAPI.getDetailDogData(id)
             if (response.isSuccessful) {
                 response.body()!!.message.forEach {
-                    val dogDetailEntity = DogBreedDetailEntity(id, it)
+                    val dogDetailEntity = it.transformToEntity(id)// Transforma de String a DetailEntity por medio de la función de extención
                     dogBreedDAO.insertDogBreedDetail(dogDetailEntity)
                 }
             } else {
