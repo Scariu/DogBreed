@@ -22,4 +22,8 @@ interface DogBreedDAO {
     //Muestra todas las imagenes de 1 raza con el id
     @Query("SELECT * FROM table_detailbreed WHERE dogBreedDetail LIKE :id")
     fun getDogBreedsDetails(id: String): LiveData<List<DogBreedDetailEntity>>
+
+    //para pruebas android
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertDogBreed(dogBreedEntity: List<DogBreedEntity>)
 }
