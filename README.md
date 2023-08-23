@@ -15,7 +15,7 @@ https://dog.ceo/api/
 - Room: Persistencia de los datos
 - Coil: Librería para cargar imagenes desde web
 - Navigation: Navegar entre fragmentos
-- ViewModel: Conservar los datos de la interfaz de usuario
+- Lifecycle: Conservar los datos de la interfaz de usuario
 - Retrofit: Maanejo de APIs
 - AndroidTest: Pruebas de android
 - JUnit: Pruebas unitarias
