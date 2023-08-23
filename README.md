@@ -1,5 +1,5 @@
 # DogBreed
-Este proyecto es una aplicación desde la cual se desplieae de una lista de razas de perro y al momento de hacer click sobre una raza muestra imagenes de perros de la raza seleccionada. 
+Este proyecto es una aplicación desde la cual se despliega una lista de razas de perro y al momento de hacer click sobre una raza muestra imagenes de perros de la raza seleccionada. 
 <div>
     <img src="https://github.com/devicons/devicon/blob/master/icons/android/android-original.svg" title="android" alt="android" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/androidstudio/androidstudio-original.svg" title="androidStudio" alt="androidStudio" width="40" height="40"/>&nbsp;
