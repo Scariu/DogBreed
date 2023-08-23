@@ -7,7 +7,7 @@ Este proyecto es una aplicación desde la cual se desplieae de una lista de raza
 
 ## Lenguaje
  <img src="https://github.com/devicons/devicon/blob/master/icons/kotlin/kotlin-original.svg" title="Kotlin" alt="Kotlin" width="40" height="40"/> Kotlin
-## Consumo de APi
+## Consumo de API
 ```bash
 https://dog.ceo/api/
 ```
