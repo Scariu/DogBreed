@@ -2,6 +2,8 @@ package com.example.dogbreed
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.dogbreed.presentation.FirstFragmentBreedList
+import com.example.dogbreed.presentation.SplashScreenFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

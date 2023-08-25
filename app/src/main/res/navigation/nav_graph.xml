@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/firstFragmentBreedList">
+    app:startDestination="@id/splashScreenFragment">
 
     <fragment
         android:id="@+id/firstFragmentBreedList"
@@ -19,4 +19,13 @@
         android:name="com.example.dogbreed.presentation.SecondFragmentDetalle"
         android:label="fragment_second_detalle"
         tools:layout="@layout/fragment_second_detalle" />
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.dogbreed.presentation.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_firstFragmentBreedList"
+            app:destination="@id/firstFragmentBreedList" />
+    </fragment>
 </navigation>
