@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import com.example.dogbreed.R
 import com.example.dogbreed.databinding.FragmentFirstBreedListBinding
 import com.example.dogbreed.databinding.FragmentSplashScreenBinding
@@ -30,10 +31,8 @@ class SplashScreenFragment : Fragment() {
         //Para configurar el tiempo
         viewLifecycleOwner.lifecycleScope.launch {
             delay(1500)
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainerViewActivity, FirstFragmentBreedList())
-                .commit()
-
+            Navigation.findNavController(binding.root)
+                .navigate(R.id.action_splashScreenFragment_to_firstFragmentBreedList)
         }
     }
 }
