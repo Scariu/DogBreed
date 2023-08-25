@@ -40,6 +40,7 @@ class AdapterDetailBreed : RecyclerView.Adapter<AdapterDetailBreed.ViewHolder>()
         fun bind(dogDetail: DogBreedDetailEntity) {
             binding.imageDogsDetail.load(dogDetail.url){
                 placeholder(R.drawable.dog_loading)
+                error(R.drawable.image_not_available)
             }
         }
     }
