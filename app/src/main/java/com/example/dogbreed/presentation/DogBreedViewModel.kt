@@ -2,12 +2,15 @@ package com.example.dogbreed.presentation
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.dogbreed.data.Repository
 import com.example.dogbreed.data.local.DogBreedDAO
 import com.example.dogbreed.data.local.DogBreedDataBase
+import com.example.dogbreed.data.local.list.DogBreedEntity
 import com.example.dogbreed.data.remote.DogBreedRetrofit
 import kotlinx.coroutines.launch
+import retrofit2.http.Query
 
 class DogBreedViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: Repository
@@ -24,4 +27,8 @@ class DogBreedViewModel(application: Application) : AndroidViewModel(application
 
     fun getDataAllDogBreedDetails(id: String) =
         viewModelScope.launch { repository.getDogDetail(id) }
+
+    fun searchDataBaseVM(searchQuery: String): LiveData<List<DogBreedEntity>>{
+        return repository.searchDataBaseRepo(searchQuery)
+    }
 }

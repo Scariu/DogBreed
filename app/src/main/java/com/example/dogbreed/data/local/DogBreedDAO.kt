@@ -23,7 +23,11 @@ interface DogBreedDAO {
     @Query("SELECT * FROM table_detailbreed WHERE dogBreedDetail LIKE :id")
     fun getDogBreedsDetails(id: String): LiveData<List<DogBreedDetailEntity>>
 
-    //para pruebas android
+    //Para pruebas android
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDogBreed(dogBreedEntity: List<DogBreedEntity>)
+
+    //Buscador
+    @Query("SELECT * FROM tabla_dogbreed WHERE breed LIKE :searchQuery")
+    fun searchDataBase(searchQuery: String): LiveData<List<DogBreedEntity>>
 }
