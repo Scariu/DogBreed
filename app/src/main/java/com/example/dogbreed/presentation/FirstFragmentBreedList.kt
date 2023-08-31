@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import com.example.dogbreed.databinding.FragmentFirstBreedListBinding
 
@@ -21,8 +20,8 @@ class FirstFragmentBreedList : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentFirstBreedListBinding.inflate(layoutInflater)
-        initAdapter()
         initListener()
+        initAdapter()
         return binding.root
     }
 
@@ -30,15 +29,13 @@ class FirstFragmentBreedList : Fragment() {
     private fun initListener() {
         binding.etSearch.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                val query = s.toString()
-                if (query != null) {
-                    searchDataBase(query)
-                }
+
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val query = s.toString()
                 if (query != null) {
+                    viewModel.searchDataBase(query)
                     searchDataBase(query)
                 }
             }
@@ -49,23 +46,26 @@ class FirstFragmentBreedList : Fragment() {
         })
     }
 
-            private fun initAdapter() {
-        viewModel.getDataAllDogBreeds()
+    private fun initAdapter() {
         binding.recyclerViewBreed.adapter = adapter
         viewModel.breedsLiveData().observe(viewLifecycleOwner) {
             adapter.setData(it)
         }
-    }
 
+    }
 
     private fun searchDataBase(query: String) {
         val searchQuery = "%$query%"
-        viewModel.searchDataBaseVM(searchQuery).observe(this) { list ->
+        viewModel.searchDataBaseLiveData(searchQuery).observe(viewLifecycleOwner) { list ->
             list.let {
                 adapter.setData(it)
             }
         }
     }
 }
+
+
+
+
 
 

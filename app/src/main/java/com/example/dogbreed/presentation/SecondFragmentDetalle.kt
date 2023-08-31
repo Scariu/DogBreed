@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.example.dogbreed.R
-import com.example.dogbreed.databinding.FragmentFirstBreedListBinding
 import com.example.dogbreed.databinding.FragmentSecondDetalleBinding
 
 private const val ARG_PARAM1 = "id"

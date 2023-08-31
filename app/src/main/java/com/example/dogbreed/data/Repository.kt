@@ -6,7 +6,6 @@ import com.example.dogbreed.data.local.DogBreedDAO
 import com.example.dogbreed.data.local.detail.DogBreedDetailEntity
 import com.example.dogbreed.data.local.list.DogBreedEntity
 import com.example.dogbreed.data.remote.DogBreedAPI
-import retrofit2.http.Query
 
 //El repositorio es el administrador de los datos
 class Repository(private val dogBreedAPI: DogBreedAPI, private val dogBreedDAO: DogBreedDAO) {
@@ -15,9 +14,8 @@ class Repository(private val dogBreedAPI: DogBreedAPI, private val dogBreedDAO: 
         dogBreedDAO.getDogBreedsDetails(id)
 
     //Buscador
-    fun searchDataBaseRepo(searchQuery: String): LiveData<List<DogBreedEntity>>{
-        return dogBreedDAO.searchDataBase(searchQuery)
-    }
+    fun searchDataBaseRepo(searchQuery: String): LiveData<List<DogBreedEntity>> = dogBreedDAO.searchDataBase(searchQuery)
+
     suspend fun getBreeds() {
         try {
             val response = dogBreedAPI.getData() // Aqui llegan los datos
