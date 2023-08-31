@@ -14,6 +14,7 @@ class FirstFragmentBreedList : Fragment() {
     private lateinit var binding: FragmentFirstBreedListBinding
     private val viewModel: DogBreedViewModel by activityViewModels()
     private val adapter = AdapterItemBreed()
+    private var isListShown = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,9 +23,12 @@ class FirstFragmentBreedList : Fragment() {
         binding = FragmentFirstBreedListBinding.inflate(layoutInflater)
         initListener()
         initAdapter()
+        if (!isListShown) {
+            viewModel.getDataAllDogBreeds()
+            isListShown = true
+        }
         return binding.root
     }
-
 
     private fun initListener() {
         binding.etSearch.addTextChangedListener(object : TextWatcher {
@@ -63,7 +67,6 @@ class FirstFragmentBreedList : Fragment() {
         }
     }
 }
-
 
 
 
