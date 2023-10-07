@@ -29,8 +29,10 @@ https://dog.ceo/api/
 - Compatible con dispositivos que cuenten con una versión Android 5.0 o superior.
 
 ## Capturas de pantalla
-<img src="https://github.com/Scariu/DogBreed/blob/master/DogBreed1.jpeg" width="200" height="400"/>
-<img src="https://github.com/Scariu/DogBreed/blob/master/DogBreed2%C2%BF.jpeg" width="200" height="400"/>
+
+<img src="https://github.com/Scariu/DogBreed/assets/136399187/27adbdea-0d37-470f-b7c3-9558b1bba5f6" width="220" height="400"/>
+<img src="https://github.com/Scariu/DogBreed/assets/136399187/3f92e250-868a-4c59-b269-e8b382b1d143" width="220" height="400"/>
 
 ## Video
-https://github.com/Scariu/DogBreed/assets/136399187/e609a722-8f1d-4c42-8599-d29f08090918
+https://github.com/Scariu/DogBreed/assets/136399187/e7dcdf55-1cbc-4dd1-84b8-5de4b1b7d7a7
+
