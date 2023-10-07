@@ -11,7 +11,7 @@ import com.example.dogbreed.data.local.list.DogBreedEntity
 @Dao
 interface DogBreedDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertDogBreed(dogBreedEntity: DogBreedEntity)
+    suspend fun insertDogBreeds(dogBreedEntity: DogBreedEntity)
 
     @Query("SELECT * FROM tabla_dogbreed order by breed ASC")
     fun getDogBreeds(): LiveData<List<DogBreedEntity>>

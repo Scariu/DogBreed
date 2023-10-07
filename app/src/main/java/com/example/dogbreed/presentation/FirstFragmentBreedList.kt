@@ -1,12 +1,11 @@
 package com.example.dogbreed.presentation
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import com.example.dogbreed.databinding.FragmentFirstBreedListBinding
 
@@ -21,41 +20,34 @@ class FirstFragmentBreedList : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentFirstBreedListBinding.inflate(layoutInflater)
-        initListener()
-        initAdapter()
         if (!isListShown) {
             viewModel.getDataAllDogBreeds()
             isListShown = true
         }
+        initAdapter()
+        initListener()
         return binding.root
     }
 
     private fun initListener() {
-        binding.etSearch.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
+        binding.searchViewList.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
             }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val query = s.toString()
-                if (query != null) {
-                    viewModel.searchDataBase(query)
-                    searchDataBase(query)
-                }
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val query = newText.toString()
+                searchDataBase(query)
+                return true
             }
         })
     }
 
     private fun initAdapter() {
-        binding.recyclerViewBreed.adapter = adapter
         viewModel.breedsLiveData().observe(viewLifecycleOwner) {
             adapter.setData(it)
         }
-
+        binding.recyclerViewBreed.adapter = adapter
     }
 
     private fun searchDataBase(query: String) {

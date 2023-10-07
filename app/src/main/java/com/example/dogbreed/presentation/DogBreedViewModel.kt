@@ -26,7 +26,4 @@ class DogBreedViewModel(application: Application) : AndroidViewModel(application
 
     fun getDataAllDogBreedDetails(id: String) =
         viewModelScope.launch { repository.getDogDetail(id) }
-
-    fun searchDataBase(searchQuery: String) =
-        viewModelScope.launch { repository.searchDataBaseRepo(searchQuery) }
 }

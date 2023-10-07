@@ -24,7 +24,7 @@ class Repository(private val dogBreedAPI: DogBreedAPI, private val dogBreedDAO: 
                 val keys = message.keys
                 keys.forEach {
                     val dogBreedEntity = it.transformToBreedEntity()// Transforma de String DogBreedEntity(breed) por medio de la función de extención
-                    dogBreedDAO.insertDogBreed(dogBreedEntity)
+                    dogBreedDAO.insertDogBreeds(dogBreedEntity)
                 }
             }
         } catch (exception: Exception) {
